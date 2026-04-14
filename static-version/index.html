@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lumina Cosmetics | Belleza Natural</title>
+    <link rel="stylesheet" href="style.css">
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap" rel="stylesheet">
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar" id="navbar">
+        <div class="container navbar-content">
+            <button class="menu-toggle" id="menuToggle">
+                <i data-lucide="menu"></i>
+            </button>
+            <div class="logo">
+                <h1>LUMINA</h1>
+            </div>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="#">Inicio</a></li>
+                <li><a href="#productos">Tienda</a></li>
+                <li><a href="#mayoreo">Mayoreo</a></li>
+                <li><a href="#contacto">Contacto</a></li>
+            </ul>
+            <div class="nav-icons">
+                <button class="icon-btn search-btn">
+                    <i data-lucide="search"></i>
+                </button>
+                <button class="icon-btn cart-btn" id="cartBtn">
+                    <i data-lucide="shopping-bag"></i>
+                    <span class="cart-count" id="cartCount">0</span>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Mobile Menu -->
+    <div class="mobile-menu" id="mobileMenu">
+        <a href="#">Inicio</a>
+        <a href="#productos">Tienda</a>
+        <a href="#mayoreo">Mayoreo</a>
+        <a href="#contacto">Contacto</a>
+    </div>
+
+    <main>
+        <!-- Hero Section -->
+        <section class="hero">
+            <div class="container hero-content">
+                <div class="hero-text">
+                    <span class="badge">Nueva Colección 2024</span>
+                    <h2 class="serif-font">Realza tu belleza <br>con <span>Lumina</span></h2>
+                    <p>Descubre nuestra gama premium de cosméticos diseñados para cada tipo de piel. Precios especiales para emprendedoras.</p>
+                    <div class="hero-actions">
+                        <a href="#productos" class="btn btn-primary">Comprar Ahora</a>
+                        <a href="#mayoreo" class="btn btn-outline">Ver Mayoreo</a>
+                    </div>
+                </div>
+                <div class="hero-image">
+                    <img src="https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9?auto=format&fit=crop&q=80&w=1200" alt="Belleza Lumina">
+                </div>
+            </div>
+        </section>
+
+        <!-- Features Section -->
+        <section class="features">
+            <div class="container features-grid">
+                <div class="feature-card">
+                    <div class="icon-box"><i data-lucide="sparkles"></i></div>
+                    <h3>Calidad Premium</h3>
+                    <p>Productos seleccionados de la más alta calidad.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="icon-box"><i data-lucide="package"></i></div>
+                    <h3>Precios de Mayoreo</h3>
+                    <p>Descuentos automáticos al comprar por volumen.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="icon-box"><i data-lucide="truck"></i></div>
+                    <h3>Envíos Seguros</h3>
+                    <p>Entregas a todo el país de forma rápida y segura.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="icon-box"><i data-lucide="shield-check"></i></div>
+                    <h3>Compra Protegida</h3>
+                    <p>Tu satisfacción está 100% garantizada.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Shop Section -->
+        <section id="productos" class="shop">
+            <div class="container">
+                <div class="section-header">
+                    <h2 class="serif-font">Nuestra Colección</h2>
+                    <p>Explora nuestra selección de productos. Recuerda alcanzar el mínimo de piezas para precio de mayoreo.</p>
+                </div>
+
+                <!-- Filters -->
+                <div class="filters" id="categoryFilters">
+                    <button class="filter-btn active" data-category="Todos">Todos</button>
+                    <button class="filter-btn" data-category="Rostro">Rostro</button>
+                    <button class="filter-btn" data-category="Ojos">Ojos</button>
+                    <button class="filter-btn" data-category="Labios">Labios</button>
+                    <button class="filter-btn" data-category="Skincare">Skincare</button>
+                    <button class="filter-btn" data-category="Accesorios">Accesorios</button>
+                </div>
+
+                <!-- Product Grid -->
+                <div class="product-grid" id="productGrid">
+                    <!-- Products will be injected by script.js -->
+                </div>
+            </div>
+        </section>
+
+        <!-- Wholesale Section -->
+        <section id="mayoreo" class="wholesale">
+            <div class="container wholesale-content">
+                <div class="wholesale-text">
+                    <h2 class="serif-font">¿Quieres emprender tu propio negocio?</h2>
+                    <p>En Lumina Cosmetics apoyamos a las emprendedoras. Nuestro sistema de mayoreo es simple y directo.</p>
+                    <ul class="steps">
+                        <li><span class="step-num">1</span> Agrega los productos a tu carrito.</li>
+                        <li><span class="step-num">2</span> Alcanza el mínimo de piezas indicado.</li>
+                        <li><span class="step-num">3</span> ¡El descuento se aplica automáticamente!</li>
+                    </ul>
+                </div>
+                <div class="wholesale-image">
+                    <img src="https://images.unsplash.com/photo-1596462502278-27bf85033e5a?auto=format&fit=crop&q=80&w=1200" alt="Emprende con Lumina">
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer id="contacto">
+        <div class="container footer-content">
+            <div class="footer-brand">
+                <h2>LUMINA</h2>
+                <p>Realzando la belleza natural de cada mujer con productos de alta calidad.</p>
+            </div>
+            <div class="footer-links">
+                <h4>Enlaces Rápidos</h4>
+                <ul>
+                    <li><a href="#">Inicio</a></li>
+                    <li><a href="#productos">Tienda</a></li>
+                    <li><a href="#mayoreo">Mayoreo</a></li>
+                    <li><button id="openShippingInfo">Información de Envío</button></li>
+                </ul>
+            </div>
+            <div class="footer-contact">
+                <h4>Contacto</h4>
+                <ul>
+                    <li>hola@luminacosmetics.com</li>
+                    <li>+52 (55) 1234-5678</li>
+                    <li>Ciudad de México, México</li>
+                </ul>
+            </div>
+        </div>
+        <div class="container footer-bottom">
+            <p>&copy; 2024 Lumina Cosmetics. Todos los derechos reservados.</p>
+            <div class="socials">
+                <a href="#">Instagram</a>
+                <a href="#">Facebook</a>
+                <a href="#">TikTok</a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Cart Drawer -->
+    <div class="cart-overlay" id="cartOverlay"></div>
+    <div class="cart-drawer" id="cartDrawer">
+        <div class="cart-header">
+            <h3><i data-lucide="shopping-bag"></i> Tu Carrito</h3>
+            <button class="close-btn" id="closeCart"><i data-lucide="x"></i></button>
+        </div>
+        <div class="cart-items" id="cartItemsContainer">
+            <!-- Cart items will be injected by script.js -->
+        </div>
+        <div class="cart-footer" id="cartFooter">
+            <div class="cart-subtotal">
+                <span>Subtotal</span>
+                <span id="cartTotal">$0.00</span>
+            </div>
+            <button class="btn btn-primary btn-block">Proceder al pago</button>
+            <p class="shipping-info-text">¿Dudas sobre el envío? <button id="footerShippingBtn">Ver información</button></p>
+        </div>
+    </div>
+
+    <!-- Shipping Modal -->
+    <div class="modal-overlay" id="modalOverlay"></div>
+    <div class="modal" id="shippingModal">
+        <div class="modal-header">
+            <h3>Información de Envío</h3>
+            <button class="close-btn" id="closeModal"><i data-lucide="x"></i></button>
+        </div>
+        <div class="modal-body">
+            <div class="shipping-options">
+                <div class="option">
+                    <i data-lucide="package"></i>
+                    <div>
+                        <strong>Envío Estándar</strong>
+                        <p>3-5 días hábiles</p>
+                    </div>
+                </div>
+                <div class="option">
+                    <i data-lucide="truck"></i>
+                    <div>
+                        <strong>Envío Express</strong>
+                        <p>1-2 días hábiles</p>
+                    </div>
+                </div>
+            </div>
+            <p>Realizamos envíos a toda la República Mexicana. El costo se calcula al finalizar tu compra.</p>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+    <script>
+        // Initialize Lucide icons
+        lucide.createIcons();
+    </script>
+</body>
+</html>

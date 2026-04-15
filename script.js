@@ -328,7 +328,7 @@ function sendToWhatsApp() {
     }
     
     const encodedMessage = encodeURIComponent(message);
-    window.open(`https://wa.me/52223947541?text=${encodedMessage}`, '_blank');
+    window.open(`https://wa.me/522223947541?text=${encodedMessage}`, '_blank');
 }
 
 function toggleModal(open) {

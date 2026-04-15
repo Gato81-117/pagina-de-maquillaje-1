@@ -10,6 +10,8 @@ const products = [
         category: 'Rostro',
         image: 'https://images.unsplash.com/photo-1631214500115-598fc2cb8d2d?auto=format&fit=crop&q=80&w=800',
         isNew: true,
+        rating: 4.8,
+        reviews: 24
     },
     {
         id: 'p2',
@@ -20,6 +22,8 @@ const products = [
         wholesaleMin: 5,
         category: 'Ojos',
         image: 'https://images.unsplash.com/photo-1512496115851-a408e8cece92?auto=format&fit=crop&q=80&w=800',
+        rating: 4.9,
+        reviews: 18
     },
     {
         id: 'p3',
@@ -30,6 +34,8 @@ const products = [
         wholesaleMin: 10,
         category: 'Labios',
         image: 'https://images.unsplash.com/photo-1586495777744-4413f21062fa?auto=format&fit=crop&q=80&w=800',
+        rating: 4.7,
+        reviews: 32
     },
     {
         id: 'p4',
@@ -41,6 +47,8 @@ const products = [
         category: 'Skincare',
         image: 'https://images.unsplash.com/photo-1620916566398-39f1143ab7be?auto=format&fit=crop&q=80&w=800',
         isNew: true,
+        rating: 4.9,
+        reviews: 15
     },
     {
         id: 'p5',
@@ -51,6 +59,8 @@ const products = [
         wholesaleMin: 3,
         category: 'Accesorios',
         image: 'https://images.unsplash.com/photo-1596462502278-27bf85033e5a?auto=format&fit=crop&q=80&w=800',
+        rating: 5.0,
+        reviews: 10
     },
     {
         id: 'p6',
@@ -61,6 +71,8 @@ const products = [
         wholesaleMin: 6,
         category: 'Ojos',
         image: 'https://images.unsplash.com/photo-1631214503851-bc81e2812285?auto=format&fit=crop&q=80&w=800',
+        rating: 4.6,
+        reviews: 21
     },
     {
         id: 'p7',
@@ -71,6 +83,8 @@ const products = [
         wholesaleMin: 8,
         category: 'Rostro',
         image: 'https://images.unsplash.com/photo-1599305090598-fe179d501227?auto=format&fit=crop&q=80&w=800',
+        rating: 4.8,
+        reviews: 14
     },
     {
         id: 'p8',
@@ -81,6 +95,8 @@ const products = [
         wholesaleMin: 12,
         category: 'Labios',
         image: 'https://images.unsplash.com/photo-1617897903246-719242758050?auto=format&fit=crop&q=80&w=800',
+        rating: 4.5,
+        reviews: 28
     }
 ];
 
@@ -123,15 +139,41 @@ function renderProducts() {
             <div class="product-info">
                 <p class="product-category">${product.category}</p>
                 <h3>${product.name}</h3>
+                <div class="rating">
+                    <i data-lucide="star"></i>
+                    <i data-lucide="star"></i>
+                    <i data-lucide="star"></i>
+                    <i data-lucide="star"></i>
+                    <i data-lucide="star"></i>
+                    <span class="rating-text">${product.rating} (${product.reviews})</span>
+                </div>
                 <div class="price-box">
                     <div class="retail-price">
                         <p class="amount">$${product.price.toFixed(2)}</p>
                         <p class="price-label">Menudeo</p>
                     </div>
-                    <div class="wholesale-price">
-                        <p class="amount">$${product.wholesalePrice.toFixed(2)}</p>
-                        <p class="price-label">Mayoreo (min ${product.wholesaleMin} pz)</p>
-                    </div>
+                </div>
+                
+                <!-- Wholesale Table Table -->
+                <div class="wholesale-table-container">
+                    <table class="w-table">
+                        <thead>
+                            <tr>
+                                <th>Cantidad</th>
+                                <th>Precio Unit.</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>1 - ${product.wholesaleMin - 1} pz</td>
+                                <td>$${product.price.toFixed(2)}</td>
+                            </tr>
+                            <tr class="highlight">
+                                <td>${product.wholesaleMin}+ pz</td>
+                                <td>$${product.wholesalePrice.toFixed(2)}</td>
+                            </tr>
+                        </tbody>
+                    </table>
                 </div>
             </div>
         </div>

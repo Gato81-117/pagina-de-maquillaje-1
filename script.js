@@ -133,8 +133,8 @@ const modalOverlay = document.getElementById('modalOverlay');
 
 // Functions
 function renderProducts() {
-    const filtered = activeCategory === 'Todos' 
-        ? products 
+    const filtered = activeCategory === 'Todos'
+        ? products
         : products.filter(p => p.category === activeCategory);
 
     productGrid.innerHTML = filtered.map(product => `
@@ -192,7 +192,7 @@ function renderProducts() {
             </div>
         </div>
     `).join('');
-    
+
     // Re-initialize icons for new elements
     if (window.lucide) {
         window.lucide.createIcons();
@@ -248,7 +248,7 @@ function updateWishlistUI() {
         wishlistFooter.style.display = 'block';
         wishlistItemsContainer.innerHTML = wishlist.map(item => {
             const price = isGlobalWholesale ? item.wholesalePrice : item.price;
-            
+
             return `
                 <div class="cart-item">
                     <img src="${item.image}" alt="${item.name}" class="cart-item-img">
@@ -260,10 +260,10 @@ function updateWishlistUI() {
                             </button>
                         </div>
                         <div class="wholesale-status">
-                            ${isGlobalWholesale 
-                                ? '<span class="status-active">Precio Mayoreo aplicado (Global)</span>' 
-                                : `<span class="status-pending">Faltan ${5 - totalItems} pz en total para mayoreo</span>`
-                            }
+                            ${isGlobalWholesale
+                    ? '<span class="status-active">Precio Mayoreo aplicado (Global)</span>'
+                    : `<span class="status-pending">Faltan ${5 - totalItems} pz en total para mayoreo</span>`
+                }
                         </div>
                         <div class="cart-item-controls">
                             <div class="quantity-picker">
@@ -282,7 +282,7 @@ function updateWishlistUI() {
             const price = isGlobalWholesale ? item.wholesalePrice : item.price;
             return sum + (price * item.quantity);
         }, 0);
-        
+
         wishlistTotal.textContent = `$${total.toFixed(2)}`;
     }
 
@@ -306,30 +306,29 @@ function toggleWishlist(open) {
 function sendToWhatsApp() {
     const totalItems = wishlist.reduce((sum, item) => sum + item.quantity, 0);
     const isGlobalWholesale = totalItems >= 5;
-    
+
     let message = "¡Hola Velvet Wink! 🌸\n\nMe gustaría solicitar una cotización para los siguientes productos de mi lista de deseos:\n\n";
-    
+
     wishlist.forEach(item => {
         const price = isGlobalWholesale ? item.wholesalePrice : item.price;
         message += `✅ *${item.name}*\n   Cantidad: ${item.quantity} pz\n   Subtotal: $${(price * item.quantity).toFixed(2)}\n\n`;
     });
-    
+
     const total = wishlist.reduce((sum, item) => {
         const price = isGlobalWholesale ? item.wholesalePrice : item.price;
         return sum + (price * item.quantity);
     }, 0);
-    
+
     message += `--------------------------\n`;
     message += `💰 *TOTAL ESTIMADO: $${total.toFixed(2)}*\n`;
     message += `🏷️ *TIPO DE PRECIO:* ${isGlobalWholesale ? 'MAYOREO (5+ pz)' : 'MENUDEO'}\n`;
-    
+
     if (!isGlobalWholesale) {
         message += `\n_(Nota: Si agrego ${5 - totalItems} pz más, ¡aplico a precio de mayoreo! por eso quiero cotizar)_`;
     }
-    
-    const encodedMessage = encodeURIComponent(message);
-window.open(`https://wa.me/5212223947541?text=${encodedMessage}`, '_blank');
 
+    const encodedMessage = encodeURIComponent(message);
+    window.open(`https://wa.me/5212223947541?text=${encodedMessage}`, '_blank');
 }
 
 function toggleModal(open) {
@@ -382,13 +381,13 @@ const slides = document.querySelectorAll('#offerCarousel .carousel-slide');
 
 function moveCarousel(direction) {
     if (!slides || slides.length === 0) return;
-    
+
     // Remove active class from current
     slides[currentSlide].classList.remove('current-slide');
-    
+
     // Calculate next slide index
     currentSlide = (currentSlide + direction + slides.length) % slides.length;
-    
+
     // Add active class to new slide
     slides[currentSlide].classList.add('current-slide');
 }

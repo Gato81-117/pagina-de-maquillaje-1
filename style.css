@@ -1148,6 +1148,12 @@ footer {
     .footer-content { grid-template-columns: 1fr 1fr; }
     .footer-brand { grid-column: span 2; }
     .testimonials-grid { grid-template-columns: repeat(2, 1fr); }
+    
+    .offer-container {
+        grid-template-columns: 1fr;
+        gap: 3rem;
+        padding: 2.5rem;
+    }
 }
 
 @media (max-width: 768px) {
@@ -1162,4 +1168,24 @@ footer {
     .footer-content { grid-template-columns: 1fr; gap: 2rem; }
     .footer-brand { grid-column: span 1; }
     .testimonials-grid { grid-template-columns: 1fr; }
+    
+    .offer-container {
+        padding: 1.5rem;
+        gap: 2rem;
+    }
+    .offer-details h2 { font-size: 2rem; }
+    .offer-carousel {
+        aspect-ratio: 1; /* Make it square on mobile to prevent excessive height */
+    }
+    .offer-includes ul {
+        grid-template-columns: 1fr;
+    }
+    .offer-price-action {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 1.5rem;
+    }
+    .offer-add-btn {
+        width: 100%;
+    }
 }

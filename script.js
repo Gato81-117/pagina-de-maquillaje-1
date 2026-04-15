@@ -6,7 +6,7 @@ const products = [
         description: 'Incluye caja, shopping bag, llavero, monedero y certificado.',
         price: 950,
         wholesalePrice: 710,
-        wholesaleMin: 1,
+        wholesaleMin: 5,
         category: 'Paquetes',
         image: 'imagenes/oferta/bolsa coach completa .jpeg',
         isNew: true,
@@ -19,7 +19,7 @@ const products = [
         description: 'Aretes de diseño clásico, ideales para complementar cualquier look.',
         price: 120,
         wholesalePrice: 85,
-        wholesaleMin: 10,
+        wholesaleMin: 5,
         category: 'Accesorios',
         image: 'imagenes/aretes.jpeg',
         isNew: true,
@@ -32,7 +32,7 @@ const products = [
         description: 'Hermosa bolsa con su complemento ideal para llevar a todas partes.',
         price: 650,
         wholesalePrice: 480,
-        wholesaleMin: 3,
+        wholesaleMin: 5,
         category: 'Paquetes',
         image: 'imagenes/bolsa con complemento.jpeg',
         rating: 4.9,
@@ -56,7 +56,7 @@ const products = [
         description: 'Crema hidratante corporal de larga duración con aroma suave.',
         price: 180,
         wholesalePrice: 130,
-        wholesaleMin: 6,
+        wholesaleMin: 5,
         category: 'Cuidado Personal',
         image: 'imagenes/crema para cuerpo.jpeg',
         isNew: true,
@@ -81,7 +81,7 @@ const products = [
         description: 'Gel para remover impurezas y dejar la piel fresca.',
         price: 150,
         wholesalePrice: 100,
-        wholesaleMin: 8,
+        wholesaleMin: 5,
         category: 'Cuidado Personal',
         image: 'imagenes/gel .jpeg',
         rating: 4.6,
@@ -93,7 +93,7 @@ const products = [
         description: 'Llaveros decorativos en varios diseños elegantes.',
         price: 90,
         wholesalePrice: 65,
-        wholesaleMin: 12,
+        wholesaleMin: 5,
         category: 'Accesorios',
         image: 'imagenes/llaveros .jpeg',
         rating: 4.8,
@@ -105,7 +105,7 @@ const products = [
         description: 'Paquete que te enamorará. Calidad superior y diseño exclusivo.',
         price: 780,
         wholesalePrice: 590,
-        wholesaleMin: 3,
+        wholesaleMin: 5,
         category: 'Paquetes',
         image: 'imagenes/paquete de bolsa completo.jpeg',
         rating: 4.5,
@@ -114,17 +114,17 @@ const products = [
 ];
 
 // App State
-let cart = [];
+let wishlist = [];
 let activeCategory = 'Todos';
 
 // DOM Elements
 const productGrid = document.getElementById('productGrid');
-const cartDrawer = document.getElementById('cartDrawer');
-const cartOverlay = document.getElementById('cartOverlay');
-const cartItemsContainer = document.getElementById('cartItemsContainer');
-const cartCount = document.getElementById('cartCount');
-const cartTotal = document.getElementById('cartTotal');
-const cartFooter = document.getElementById('cartFooter');
+const wishlistDrawer = document.getElementById('wishlistDrawer');
+const wishlistOverlay = document.getElementById('wishlistOverlay');
+const wishlistItemsContainer = document.getElementById('wishlistItemsContainer');
+const wishlistCount = document.getElementById('wishlistCount');
+const wishlistTotal = document.getElementById('wishlistTotal');
+const wishlistFooter = document.getElementById('wishlistFooter');
 const menuToggle = document.getElementById('menuToggle');
 const mobileMenu = document.getElementById('mobileMenu');
 const categoryFilters = document.getElementById('categoryFilters');
@@ -143,9 +143,9 @@ function renderProducts() {
             <div class="product-image">
                 <img src="${product.image}" alt="${product.name}">
                 <div class="add-to-cart-overlay">
-                    <button class="overlay-btn" onclick="addToCart('${product.id}')">
-                        <i data-lucide="shopping-bag"></i>
-                        Agregar al carrito
+                    <button class="overlay-btn" onclick="addToWishlist('${product.id}')">
+                        <i data-lucide="heart"></i>
+                        Añadir a deseos
                     </button>
                 </div>
             </div>
@@ -169,20 +169,21 @@ function renderProducts() {
                 
                 <!-- Wholesale Table Table -->
                 <div class="wholesale-table-container">
+                    <div class="wholesale-note">Regla: 5pz totales para mayoreo</div>
                     <table class="w-table">
                         <thead>
                             <tr>
-                                <th>Cantidad</th>
+                                <th>Tipo</th>
                                 <th>Precio Unit.</th>
                             </tr>
                         </thead>
                         <tbody>
                             <tr>
-                                <td>1 - ${product.wholesaleMin - 1} pz</td>
+                                <td>Menudeo (< 5 pz)</td>
                                 <td>$${product.price.toFixed(2)}</td>
                             </tr>
                             <tr class="highlight">
-                                <td>${product.wholesaleMin}+ pz</td>
+                                <td>Mayoreo (5+ pz)</td>
                                 <td>$${product.wholesalePrice.toFixed(2)}</td>
                             </tr>
                         </tbody>
@@ -198,53 +199,55 @@ function renderProducts() {
     }
 }
 
-function addToCart(productId) {
+function addToWishlist(productId) {
     const product = products.find(p => p.id === productId);
-    const existing = cart.find(item => item.id === productId);
+    const existing = wishlist.find(item => item.id === productId);
 
     if (existing) {
         existing.quantity += 1;
     } else {
-        cart.push({ ...product, quantity: 1 });
+        wishlist.push({ ...product, quantity: 1 });
     }
 
-    updateCartUI();
-    toggleCart(true);
+    updateWishlistUI();
+    toggleWishlist(true);
 }
 
 function updateQuantity(productId, delta) {
-    const item = cart.find(i => i.id === productId);
+    const item = wishlist.find(i => i.id === productId);
     if (!item) return;
 
     item.quantity = Math.max(1, item.quantity + delta);
-    updateCartUI();
+    updateWishlistUI();
 }
 
-function removeFromCart(productId) {
-    cart = cart.filter(i => i.id !== productId);
-    updateCartUI();
+function removeFromWishlist(productId) {
+    wishlist = wishlist.filter(i => i.id !== productId);
+    updateWishlistUI();
 }
 
-function updateCartUI() {
+function updateWishlistUI() {
     // Update count
-    const totalItems = cart.reduce((sum, item) => sum + item.quantity, 0);
-    cartCount.textContent = totalItems;
+    const totalItems = wishlist.reduce((sum, item) => sum + item.quantity, 0);
+    wishlistCount.textContent = totalItems;
+
+    // Check wholesale rule (global 5 items)
+    const isGlobalWholesale = totalItems >= 5;
 
     // Update list
-    if (cart.length === 0) {
-        cartItemsContainer.innerHTML = `
+    if (wishlist.length === 0) {
+        wishlistItemsContainer.innerHTML = `
             <div class="empty-cart">
-                <i data-lucide="shopping-bag" style="width: 48px; height: 48px; color: var(--primary-light)"></i>
-                <p>Tu carrito está vacío</p>
-                <button class="btn btn-outline" onclick="toggleCart(false)">Seguir comprando</button>
+                <i data-lucide="heart" style="width: 48px; height: 48px; color: var(--primary-light)"></i>
+                <p>Tu lista de deseos está vacía</p>
+                <button class="btn btn-outline" onclick="toggleWishlist(false)">Seguir explorando</button>
             </div>
         `;
-        cartFooter.style.display = 'none';
+        wishlistFooter.style.display = 'none';
     } else {
-        cartFooter.style.display = 'block';
-        cartItemsContainer.innerHTML = cart.map(item => {
-            const isWholesale = item.quantity >= item.wholesaleMin;
-            const price = isWholesale ? item.wholesalePrice : item.price;
+        wishlistFooter.style.display = 'block';
+        wishlistItemsContainer.innerHTML = wishlist.map(item => {
+            const price = isGlobalWholesale ? item.wholesalePrice : item.price;
             
             return `
                 <div class="cart-item">
@@ -252,14 +255,14 @@ function updateCartUI() {
                     <div class="cart-item-info">
                         <div class="cart-item-header">
                             <h4>${item.name}</h4>
-                            <button onclick="removeFromCart('${item.id}')" class="text-muted">
+                            <button onclick="removeFromWishlist('${item.id}')" class="text-muted">
                                 <i data-lucide="x" style="width: 16px;"></i>
                             </button>
                         </div>
                         <div class="wholesale-status">
-                            ${isWholesale 
-                                ? '<span class="status-active">Precio Mayoreo aplicado</span>' 
-                                : `<span class="status-pending">Faltan ${item.wholesaleMin - item.quantity} pz para mayoreo</span>`
+                            ${isGlobalWholesale 
+                                ? '<span class="status-active">Precio Mayoreo aplicado (Global)</span>' 
+                                : `<span class="status-pending">Faltan ${5 - totalItems} pz en total para mayoreo</span>`
                             }
                         </div>
                         <div class="cart-item-controls">
@@ -275,12 +278,12 @@ function updateCartUI() {
             `;
         }).join('');
 
-        const total = cart.reduce((sum, item) => {
-            const price = item.quantity >= item.wholesaleMin ? item.wholesalePrice : item.price;
+        const total = wishlist.reduce((sum, item) => {
+            const price = isGlobalWholesale ? item.wholesalePrice : item.price;
             return sum + (price * item.quantity);
         }, 0);
         
-        cartTotal.textContent = `$${total.toFixed(2)}`;
+        wishlistTotal.textContent = `$${total.toFixed(2)}`;
     }
 
     if (window.lucide) {
@@ -288,16 +291,44 @@ function updateCartUI() {
     }
 }
 
-function toggleCart(open) {
+function toggleWishlist(open) {
     if (open) {
-        cartDrawer.classList.add('active');
-        cartOverlay.classList.add('active');
+        wishlistDrawer.classList.add('active');
+        wishlistOverlay.classList.add('active');
         document.body.style.overflow = 'hidden';
     } else {
-        cartDrawer.classList.remove('active');
-        cartOverlay.classList.remove('active');
+        wishlistDrawer.classList.remove('active');
+        wishlistOverlay.classList.remove('active');
         document.body.style.overflow = '';
     }
+}
+
+function sendToWhatsApp() {
+    const totalItems = wishlist.reduce((sum, item) => sum + item.quantity, 0);
+    const isGlobalWholesale = totalItems >= 5;
+    
+    let message = "¡Hola Velvet Wink! 🌸\n\nMe gustaría solicitar una cotización para los siguientes productos de mi lista de deseos:\n\n";
+    
+    wishlist.forEach(item => {
+        const price = isGlobalWholesale ? item.wholesalePrice : item.price;
+        message += `✅ *${item.name}*\n   Cantidad: ${item.quantity} pz\n   Subtotal: $${(price * item.quantity).toFixed(2)}\n\n`;
+    });
+    
+    const total = wishlist.reduce((sum, item) => {
+        const price = isGlobalWholesale ? item.wholesalePrice : item.price;
+        return sum + (price * item.quantity);
+    }, 0);
+    
+    message += `--------------------------\n`;
+    message += `💰 *TOTAL ESTIMADO: $${total.toFixed(2)}*\n`;
+    message += `🏷️ *TIPO DE PRECIO:* ${isGlobalWholesale ? 'MAYOREO (5+ pz)' : 'MENUDEO'}\n`;
+    
+    if (!isGlobalWholesale) {
+        message += `\n_(Nota: Si agrego ${5 - totalItems} pz más, ¡aplico a precio de mayoreo! por eso quiero cotizar)_`;
+    }
+    
+    const encodedMessage = encodeURIComponent(message);
+    window.open(`https://wa.me/525512345678?text=${encodedMessage}`, '_blank');
 }
 
 function toggleModal(open) {
@@ -313,9 +344,15 @@ function toggleModal(open) {
 }
 
 // Event Listeners
-document.getElementById('cartBtn').addEventListener('click', () => toggleCart(true));
-document.getElementById('closeCart').addEventListener('click', () => toggleCart(false));
-cartOverlay.addEventListener('click', () => toggleCart(false));
+if (document.getElementById('wishlistBtn')) {
+    document.getElementById('wishlistBtn').addEventListener('click', () => toggleWishlist(true));
+}
+if (document.getElementById('closeWishlist')) {
+    document.getElementById('closeWishlist').addEventListener('click', () => toggleWishlist(false));
+}
+if (wishlistOverlay) {
+    wishlistOverlay.addEventListener('click', () => toggleWishlist(false));
+}
 
 menuToggle.addEventListener('click', () => {
     mobileMenu.classList.toggle('active');
@@ -334,7 +371,7 @@ document.getElementById('openShippingInfo').addEventListener('click', () => togg
 document.getElementById('closeModal').addEventListener('click', () => toggleModal(false));
 modalOverlay.addEventListener('click', () => toggleModal(false));
 document.getElementById('footerShippingBtn').addEventListener('click', () => {
-    toggleCart(false);
+    toggleWishlist(false);
     toggleModal(true);
 });
 
@@ -368,4 +405,4 @@ if (document.getElementById('carouselPrevBtn')) {
 
 // Init
 renderProducts();
-updateCartUI();
+updateWishlistUI();

@@ -33,9 +33,9 @@
                 <button class="icon-btn search-btn">
                     <i data-lucide="search"></i>
                 </button>
-                <button class="icon-btn cart-btn" id="cartBtn">
-                    <i data-lucide="shopping-bag"></i>
-                    <span class="cart-count" id="cartCount">0</span>
+                <button class="icon-btn cart-btn" id="wishlistBtn">
+                    <i data-lucide="heart"></i>
+                    <span class="cart-count" id="wishlistCount">0</span>
                 </button>
             </div>
         </div>
@@ -122,8 +122,8 @@
                                 <span class="price-label">Precio Especial</span>
                                 <span class="price-new">$710.00</span>
                             </div>
-                            <button class="btn btn-primary offer-add-btn" onclick="addToCart('p-coach')">
-                                <i data-lucide="shopping-bag"></i> Agregar a mi pedido
+                            <button class="btn btn-primary offer-add-btn" onclick="addToWishlist('p-coach')">
+                                <i data-lucide="heart"></i> Añadir a deseos
                             </button>
                         </div>
                     </div>
@@ -188,9 +188,9 @@
                     <h2 class="serif-font">¿Quieres emprender tu propio negocio?</h2>
                     <p>En Lumina Cosmetics apoyamos a las emprendedoras. Nuestro sistema de mayoreo es simple y directo.</p>
                     <ul class="steps">
-                        <li><span class="step-num">1</span> Agrega los productos a tu carrito.</li>
-                        <li><span class="step-num">2</span> Alcanza el mínimo de piezas indicado.</li>
-                        <li><span class="step-num">3</span> ¡El descuento se aplica automáticamente!</li>
+                        <li><span class="step-num">1</span> Añade productos a tu lista de deseos.</li>
+                        <li><span class="step-num">2</span> Alcanza un mínimo de 5 piezas en total (combinables).</li>
+                        <li><span class="step-num">3</span> ¡El descuento de mayoreo se aplica automáticamente!</li>
                     </ul>
                 </div>
                 <div class="wholesale-image">
@@ -284,22 +284,22 @@
         </div>
     </footer>
 
-    <!-- Cart Drawer -->
-    <div class="cart-overlay" id="cartOverlay"></div>
-    <div class="cart-drawer" id="cartDrawer">
+    <!-- Wishlist Drawer -->
+    <div class="cart-overlay" id="wishlistOverlay"></div>
+    <div class="cart-drawer" id="wishlistDrawer">
         <div class="cart-header">
-            <h3><i data-lucide="shopping-bag"></i> Tu Carrito</h3>
-            <button class="close-btn" id="closeCart"><i data-lucide="x"></i></button>
+            <h3><i data-lucide="heart"></i> Mi Lista de Deseos</h3>
+            <button class="close-btn" id="closeWishlist"><i data-lucide="x"></i></button>
         </div>
-        <div class="cart-items" id="cartItemsContainer">
-            <!-- Cart items will be injected by script.js -->
+        <div class="cart-items" id="wishlistItemsContainer">
+            <!-- Wishlist items will be injected by script.js -->
         </div>
-        <div class="cart-footer" id="cartFooter">
+        <div class="cart-footer" id="wishlistFooter">
             <div class="cart-subtotal">
                 <span>Subtotal</span>
-                <span id="cartTotal">$0.00</span>
+                <span id="wishlistTotal">$0.00</span>
             </div>
-            <button class="btn btn-primary btn-block">Proceder al pago</button>
+            <button class="btn btn-primary btn-block" onclick="sendToWhatsApp()"><i data-lucide="message-circle" style="margin-right:8px; width:20px; vertical-align:middle;"></i> Solicitar cotización por WhatsApp</button>
             <p class="shipping-info-text">¿Dudas sobre el envío? <button id="footerShippingBtn">Ver información</button></p>
         </div>
     </div>

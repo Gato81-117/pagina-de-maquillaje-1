@@ -905,6 +905,50 @@ footer {
 .status-active { color: var(--primary); font-weight: 600; }
 .status-pending { color: var(--text-muted); }
 
+/* Heart icon states */
+.heart-btn {
+    position: absolute;
+    top: 0.75rem;
+    right: 0.75rem;
+    z-index: 10;
+    background: rgba(255,255,255,0.9);
+    border-radius: 50%;
+    width: 36px;
+    height: 36px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s;
+    box-shadow: var(--shadow);
+}
+
+.heart-btn:hover {
+    transform: scale(1.1);
+    background: var(--white);
+}
+
+.heart-btn i {
+    color: var(--text-muted);
+    width: 18px;
+    height: 18px;
+    transition: all 0.3s;
+}
+
+.heart-btn.active i {
+    color: #e11d48;
+    fill: #e11d48;
+}
+
+@keyframes heartPop {
+    0%   { transform: scale(1); }
+    50%  { transform: scale(1.35); }
+    100% { transform: scale(1); }
+}
+
+.heart-btn.pop {
+    animation: heartPop 0.3s ease;
+}
+
 .cart-item-controls {
     display: flex;
     justify-content: space-between;
@@ -1049,6 +1093,16 @@ footer {
 
 .product-card:hover .wholesale-table-container {
     display: block;
+}
+
+.wholesale-table-container .wholesale-note {
+    font-size: 0.68rem;
+    color: var(--primary);
+    font-weight: 600;
+    margin-bottom: 0.4rem;
+    display: flex;
+    align-items: center;
+    gap: 0.3rem;
 }
 
 .w-table {

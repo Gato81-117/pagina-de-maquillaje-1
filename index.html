@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Lumina Cosmetics | Belleza Natural</title>
+    <title>Velvet Wink | Belleza Natural</title>
     <link rel="stylesheet" href="style.css">
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -20,7 +20,8 @@
                 <i data-lucide="menu"></i>
             </button>
             <div class="logo">
-                <h1>LUMINA</h1>
+                <img src="imagenes/logo tienda .jpeg" alt="Velvet Wink" class="brand-logo">
+                <h1>velvet wink</h1>
             </div>
             <ul class="nav-links" id="navLinks">
                 <li><a href="#">Inicio</a></li>
@@ -54,15 +55,78 @@
             <div class="container hero-content">
                 <div class="hero-text">
                     <span class="badge">Nueva Colección 2024</span>
-                    <h2 class="serif-font">Realza tu belleza <br>con <span>Lumina</span></h2>
-                    <p>Descubre nuestra gama premium de cosméticos diseñados para cada tipo de piel. Precios especiales para emprendedoras.</p>
+                    <h2 class="serif-font">Realza tu estilo <br>con <span>Velvet Wink</span></h2>
+                    <p>Descubre nuestra gama exclusiva de bolsas y accesorios premium.</p>
                     <div class="hero-actions">
-                        <a href="#productos" class="btn btn-primary">Comprar Ahora</a>
-                        <a href="#mayoreo" class="btn btn-outline">Ver Mayoreo</a>
+                        <a href="#oferta" class="btn btn-primary">Ver Oferta</a>
+                        <a href="#productos" class="btn btn-outline">Ver Catálogo</a>
                     </div>
                 </div>
                 <div class="hero-image">
-                    <img src="https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9?auto=format&fit=crop&q=80&w=1200" alt="Belleza Lumina">
+                    <img src="imagenes/paquete de bolsa completo.jpeg" alt="Productos Velvet Wink">
+                </div>
+            </div>
+        </section>
+
+        <!-- Special Offer Section -->
+        <section id="oferta" class="special-offer">
+            <div class="container">
+                <div class="offer-container">
+                    <div class="offer-carousel">
+                        <button class="carousel-btn prev" id="carouselPrevBtn"><i data-lucide="chevron-left"></i></button>
+                        <div class="carousel-track-container">
+                            <ul class="carousel-track" id="offerCarousel">
+                                <li class="carousel-slide current-slide">
+                                    <img src="imagenes/oferta/bolsa coach completa .jpeg" alt="Bolsa Coach completa">
+                                </li>
+                                <li class="carousel-slide">
+                                    <img src="imagenes/oferta/modelo coach.jpeg" alt="Modelo con Bolsa Coach">
+                                </li>
+                                <li class="carousel-slide">
+                                    <img src="imagenes/oferta/bolsa coach billetera.jpeg" alt="Bolsa Coach Billetera">
+                                </li>
+                                <li class="carousel-slide">
+                                    <img src="imagenes/oferta/certificado de bolsa coach .jpeg" alt="Certificado Bolsa Coach">
+                                </li>
+                                <li class="carousel-slide">
+                                    <img src="imagenes/oferta/llavero bolsa coach.jpeg" alt="Llavero Bolsa Coach">
+                                </li>
+                            </ul>
+                        </div>
+                        <button class="carousel-btn next" id="carouselNextBtn"><i data-lucide="chevron-right"></i></button>
+                    </div>
+                    <div class="offer-details">
+                        <span class="badge pulse-badge">¡Oferta Especial Destacada!</span>
+                        <h2 class="serif-font">Bolsa Coach Jonie #12345</h2>
+                        <div class="offer-meta">
+                            <span class="offer-dimensions">📐 16 x 10 cm</span>
+                            <span class="offer-quality">🔥 Calidad 🔝 1.1😍</span>
+                        </div>
+                        <p class="offer-desc">Más hermosa en persona que en fotos 🙌🏻. El complemento perfecto para cualquier outfit con envío seguro.</p>
+                        
+                        <div class="offer-includes">
+                            <h3>Este paquete incluye:</h3>
+                            <ul>
+                                <li><i data-lucide="gift"></i> Caja Original</li>
+                                <li><i data-lucide="shopping-bag"></i> Shopping bag</li>
+                                <li><i data-lucide="key"></i> Llavero exclusivo</li>
+                                <li><i data-lucide="wallet"></i> Monedero a juego</li>
+                                <li><i data-lucide="award"></i> Certificado de calidad</li>
+                                <li><i data-lucide="scissors"></i> Correa ajustable</li>
+                                <li><i data-lucide="info"></i> Interior con serie</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="offer-price-action">
+                            <div class="offer-price">
+                                <span class="price-label">Precio Especial</span>
+                                <span class="price-new">$710.00</span>
+                            </div>
+                            <button class="btn btn-primary offer-add-btn" onclick="addToCart('p-coach')">
+                                <i data-lucide="shopping-bag"></i> Agregar a mi pedido
+                            </button>
+                        </div>
+                    </div>
                 </div>
             </div>
         </section>
@@ -104,10 +168,9 @@
                 <!-- Filters -->
                 <div class="filters" id="categoryFilters">
                     <button class="filter-btn active" data-category="Todos">Todos</button>
-                    <button class="filter-btn" data-category="Rostro">Rostro</button>
-                    <button class="filter-btn" data-category="Ojos">Ojos</button>
-                    <button class="filter-btn" data-category="Labios">Labios</button>
-                    <button class="filter-btn" data-category="Skincare">Skincare</button>
+                    <button class="filter-btn" data-category="Bolsas">Bolsas</button>
+                    <button class="filter-btn" data-category="Paquetes">Paquetes</button>
+                    <button class="filter-btn" data-category="Cuidado Personal">Cuidado Personal</button>
                     <button class="filter-btn" data-category="Accesorios">Accesorios</button>
                 </div>
 
@@ -146,7 +209,7 @@
                 <div class="testimonials-grid">
                     <div class="testimonial-card">
                         <div class="stars"><i data-lucide="star"></i><i data-lucide="star"></i><i data-lucide="star"></i><i data-lucide="star"></i><i data-lucide="star"></i></div>
-                        <p class="comment">"Los productos son de excelente calidad. He logrado duplicar mis ventas desde que empecé con Lumina."</p>
+                        <p class="comment">"Los productos son de excelente calidad y la bolsa Coach está hermosa. He logrado duplicar mis ventas desde que empecé con Velvet Wink."</p>
                         <div class="user">
                             <img src="https://i.pravatar.cc/100?u=1" alt="Ana García">
                             <div>
@@ -157,18 +220,18 @@
                     </div>
                     <div class="testimonial-card">
                         <div class="stars"><i data-lucide="star"></i><i data-lucide="star"></i><i data-lucide="star"></i><i data-lucide="star"></i><i data-lucide="star"></i></div>
-                        <p class="comment">"El envío llegó súper rápido a Monterrey. Todo muy bien empaquetado y los precios de mayoreo son insuperables."</p>
+                        <p class="comment">"El envío llegó súper rápido a Monterrey. Todo muy bien empaquetado y los precios de mayoreo son insuperables. ¡Súper recomendados!"</p>
                         <div class="user">
                             <img src="https://i.pravatar.cc/100?u=2" alt="María Lopez">
                             <div>
                                 <strong>María Lopez</strong>
-                                <span>Maquillista Profesional</span>
+                                <span>Boutique de Accesorios</span>
                             </div>
                         </div>
                     </div>
                     <div class="testimonial-card">
                         <div class="stars"><i data-lucide="star"></i><i data-lucide="star"></i><i data-lucide="star"></i><i data-lucide="star"></i><i data-lucide="star-half"></i></div>
-                        <p class="comment">"Me encanta que siempre tengan stock de lo que necesito. La base líquida es mi producto favorito y el de mis clientas."</p>
+                        <p class="comment">"Me encanta que siempre tengan novedades en paquetes de bolsas. Mis clientas están felices con la calidad 1.1 que manejan."</p>
                         <div class="user">
                             <img src="https://i.pravatar.cc/100?u=3" alt="Sofía Ruiz">
                             <div>
@@ -187,8 +250,11 @@
     <footer id="contacto">
         <div class="container footer-content">
             <div class="footer-brand">
-                <h2>LUMINA</h2>
-                <p>Realzando la belleza natural de cada mujer con productos de alta calidad.</p>
+                <div class="footer-logo">
+                    <img src="imagenes/logo tienda .jpeg" alt="Velvet Wink" class="brand-logo">
+                    <h2>velvet wink</h2>
+                </div>
+                <p>Realzando tu estilo con accesorios premium de la más alta calidad.</p>
             </div>
             <div class="footer-links">
                 <h4>Enlaces Rápidos</h4>
@@ -209,7 +275,7 @@
             </div>
         </div>
         <div class="container footer-bottom">
-            <p>&copy; 2024 Lumina Cosmetics. Todos los derechos reservados.</p>
+            <p>&copy; 2024 Velvet Wink. Todos los derechos reservados.</p>
             <div class="socials">
                 <a href="#">Instagram</a>
                 <a href="#">Facebook</a>

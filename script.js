@@ -1,100 +1,113 @@
-// Product Data (Replicated from src/data.ts)
+// Product Data
 const products = [
     {
+        id: 'p-coach',
+        name: 'Bolsa Coach Jonie #12345 (Paquete Completo)',
+        description: 'Incluye caja, shopping bag, llavero, monedero y certificado.',
+        price: 950,
+        wholesalePrice: 710,
+        wholesaleMin: 1,
+        category: 'Paquetes',
+        image: 'imagenes/oferta/bolsa coach completa .jpeg',
+        isNew: true,
+        rating: 5.0,
+        reviews: 42
+    },
+    {
         id: 'p1',
-        name: 'Base Líquida Luminosa',
-        description: 'Base de cobertura media a alta con acabado radiante y natural. Larga duración.',
-        price: 350,
-        wholesalePrice: 250,
-        wholesaleMin: 6,
-        category: 'Rostro',
-        image: 'https://images.unsplash.com/photo-1631214500115-598fc2cb8d2d?auto=format&fit=crop&q=80&w=800',
+        name: 'Aretes Elegantes',
+        description: 'Aretes de diseño clásico, ideales para complementar cualquier look.',
+        price: 120,
+        wholesalePrice: 85,
+        wholesaleMin: 10,
+        category: 'Accesorios',
+        image: 'imagenes/aretes.jpeg',
         isNew: true,
         rating: 4.8,
         reviews: 24
     },
     {
         id: 'p2',
-        name: 'Paleta de Sombras "Sunset"',
-        description: '12 tonos cálidos altamente pigmentados, perfectos para looks de día y de noche.',
-        price: 480,
-        wholesalePrice: 320,
-        wholesaleMin: 5,
-        category: 'Ojos',
-        image: 'https://images.unsplash.com/photo-1512496115851-a408e8cece92?auto=format&fit=crop&q=80&w=800',
+        name: 'Paquete Bolsa con Complemento',
+        description: 'Hermosa bolsa con su complemento ideal para llevar a todas partes.',
+        price: 650,
+        wholesalePrice: 480,
+        wholesaleMin: 3,
+        category: 'Paquetes',
+        image: 'imagenes/bolsa con complemento.jpeg',
         rating: 4.9,
         reviews: 18
     },
     {
         id: 'p3',
-        name: 'Labial Mate Velvet',
-        description: 'Labial líquido de acabado mate aterciopelado. No reseca los labios.',
-        price: 180,
-        wholesalePrice: 110,
-        wholesaleMin: 10,
-        category: 'Labios',
-        image: 'https://images.unsplash.com/photo-1586495777744-4413f21062fa?auto=format&fit=crop&q=80&w=800',
+        name: 'Bolsa de Mano Clásica',
+        description: 'Bolsa de mano perfecta para eventos de noche o el día a día.',
+        price: 450,
+        wholesalePrice: 320,
+        wholesaleMin: 5,
+        category: 'Bolsas',
+        image: 'imagenes/bolsa de mano.jpeg',
         rating: 4.7,
         reviews: 32
     },
     {
         id: 'p4',
-        name: 'Sérum Hidratante Ácido Hialurónico',
-        description: 'Sérum facial para una hidratación profunda y reducción de líneas de expresión.',
-        price: 520,
-        wholesalePrice: 380,
-        wholesaleMin: 4,
-        category: 'Skincare',
-        image: 'https://images.unsplash.com/photo-1620916566398-39f1143ab7be?auto=format&fit=crop&q=80&w=800',
+        name: 'Crema para Cuerpo',
+        description: 'Crema hidratante corporal de larga duración con aroma suave.',
+        price: 180,
+        wholesalePrice: 130,
+        wholesaleMin: 6,
+        category: 'Cuidado Personal',
+        image: 'imagenes/crema para cuerpo.jpeg',
         isNew: true,
         rating: 4.9,
         reviews: 15
     },
     {
         id: 'p5',
-        name: 'Set de Brochas Profesionales',
-        description: 'Set de 10 brochas de cerdas sintéticas ultra suaves con estuche.',
-        price: 650,
-        wholesalePrice: 450,
-        wholesaleMin: 3,
-        category: 'Accesorios',
-        image: 'https://images.unsplash.com/photo-1596462502278-27bf85033e5a?auto=format&fit=crop&q=80&w=800',
+        name: 'Crema Facial Hidratante',
+        description: 'Fórmula ligera que hidrata el rostro durante todo el día.',
+        price: 320,
+        wholesalePrice: 240,
+        wholesaleMin: 5,
+        category: 'Cuidado Personal',
+        image: 'imagenes/crema.jpeg',
         rating: 5.0,
         reviews: 10
     },
     {
         id: 'p6',
-        name: 'Máscara de Pestañas Volumen Extremo',
-        description: 'Fórmula a prueba de agua que aporta volumen y longitud sin grumos.',
-        price: 220,
-        wholesalePrice: 150,
-        wholesaleMin: 6,
-        category: 'Ojos',
-        image: 'https://images.unsplash.com/photo-1631214503851-bc81e2812285?auto=format&fit=crop&q=80&w=800',
+        name: 'Gel Limpiador',
+        description: 'Gel para remover impurezas y dejar la piel fresca.',
+        price: 150,
+        wholesalePrice: 100,
+        wholesaleMin: 8,
+        category: 'Cuidado Personal',
+        image: 'imagenes/gel .jpeg',
         rating: 4.6,
         reviews: 21
     },
     {
         id: 'p7',
-        name: 'Rubor en Crema',
-        description: 'Rubor de textura suave que se funde con la piel para un aspecto saludable.',
-        price: 210,
-        wholesalePrice: 140,
-        wholesaleMin: 8,
-        category: 'Rostro',
-        image: 'https://images.unsplash.com/photo-1599305090598-fe179d501227?auto=format&fit=crop&q=80&w=800',
+        name: 'Set de Llaveros Especiales',
+        description: 'Llaveros decorativos en varios diseños elegantes.',
+        price: 90,
+        wholesalePrice: 65,
+        wholesaleMin: 12,
+        category: 'Accesorios',
+        image: 'imagenes/llaveros .jpeg',
         rating: 4.8,
         reviews: 14
     },
     {
         id: 'p8',
-        name: 'Gloss Labial Brillo 3D',
-        description: 'Brillo labial no pegajoso con efecto volumen y destellos sutiles.',
-        price: 160,
-        wholesalePrice: 95,
-        wholesaleMin: 12,
-        category: 'Labios',
-        image: 'https://images.unsplash.com/photo-1617897903246-719242758050?auto=format&fit=crop&q=80&w=800',
+        name: 'Paquete de Bolsa Velvet',
+        description: 'Paquete que te enamorará. Calidad superior y diseño exclusivo.',
+        price: 780,
+        wholesalePrice: 590,
+        wholesaleMin: 3,
+        category: 'Paquetes',
+        image: 'imagenes/paquete de bolsa completo.jpeg',
         rating: 4.5,
         reviews: 28
     }
@@ -324,6 +337,34 @@ document.getElementById('footerShippingBtn').addEventListener('click', () => {
     toggleCart(false);
     toggleModal(true);
 });
+
+// Carousel Logic
+let currentSlide = 0;
+const slides = document.querySelectorAll('#offerCarousel .carousel-slide');
+
+function moveCarousel(direction) {
+    if (!slides || slides.length === 0) return;
+    
+    // Remove active class from current
+    slides[currentSlide].classList.remove('current-slide');
+    
+    // Calculate next slide index
+    currentSlide = (currentSlide + direction + slides.length) % slides.length;
+    
+    // Add active class to new slide
+    slides[currentSlide].classList.add('current-slide');
+}
+
+// Auto-advance carousel every 3.5 seconds
+setInterval(() => {
+    moveCarousel(1);
+}, 3500);
+
+// Fix Lucide icons for carousel buttons
+if (document.getElementById('carouselPrevBtn')) {
+    document.getElementById('carouselPrevBtn').addEventListener('click', () => moveCarousel(-1));
+    document.getElementById('carouselNextBtn').addEventListener('click', () => moveCarousel(1));
+}
 
 // Init
 renderProducts();
